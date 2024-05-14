@@ -1,0 +1,14 @@
+Malena Tomlin
+Risk Assessment - Python
+
+# Example risk assessment function
+def assess_risk(asset, threat, vulnerability):
+    risk = asset * threat * vulnerability
+    return risk
+
+# Example usage
+asset_value = 10
+threat_level = 5
+vulnerability_level = 3
+risk_score = assess_risk(asset_value, threat_level, vulnerability_level)
+print("Risk Score:", risk_score)
