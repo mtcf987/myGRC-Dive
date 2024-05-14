@@ -1,0 +1,15 @@
+Malena Tomlin
+Compliance Management
+
+# Example compliance check function
+def check_compliance(requirements, controls):
+    if set(requirements).issubset(set(controls)):
+        return True
+    else:
+        return False
+
+# Example usage
+regulatory_requirements = ["PCI-DSS", "HIPAA"]
+implemented_controls = ["Firewall", "Encryption", "Access Control"]
+is_compliant = check_compliance(regulatory_requirements, implemented_controls)
+print("Compliance Status:", is_compliant)
