@@ -1,0 +1,14 @@
+Malena Tomlin
+Policy Management
+
+# Example policy enforcement function
+def enforce_policy(policy, action):
+    if action in policy:
+        print("Action allowed by policy")
+    else:
+        print("Action not allowed by policy")
+
+# Example usage
+security_policy = ["Allow Access", "Encrypt Data", "Log Access"]
+requested_action = "Encrypt Data"
+enforce_policy(security_policy, requested_action)
