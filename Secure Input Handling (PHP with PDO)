@@ -1,0 +1,29 @@
+// Database connection
+$dsn = 'mysql:host=localhost;dbname=mydatabase';
+$username = 'username';
+$password = 'password';
+
+try {
+    $db = new PDO($dsn, $username, $password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+    exit;
+}
+
+// Secure input handling
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$stmt = $db->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+$stmt->bindParam(':username', $username);
+$stmt->bindParam(':password', $password); // Password should be hashed in production
+
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($user) {
+    echo "Login successful!";
+} else {
+    echo "Invalid username or password.";
+}
